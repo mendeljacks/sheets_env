@@ -1,1 +1,1 @@
-export const downloadEnv = () => {}
+export const downloadEnv = async () => {}
