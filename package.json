@@ -30,7 +30,7 @@
         "type": "git",
         "url": "git+https://github.com/mendeljacks/sheets_env.git"
     },
-    "author": "",
+    "author": "Mendel",
     "license": "MIT",
     "keywords": [
         "env",
