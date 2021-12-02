@@ -2,20 +2,21 @@ import { JWT, OAuth2Client } from 'google-auth-library'
 import { createServer } from 'http'
 import * as open from 'open'
 
-export const get_client_headless = async (
-    service_account_json: { client_email: string; private_key: string },
+export const getClientHeadless = async (
+    serviceAccountJson: { client_email: string; private_key: string },
     scopes
 ) => {
     const client = new JWT({
-        email: service_account_json.client_email,
-        key: service_account_json.private_key,
+        email: serviceAccountJson.client_email,
+        key: serviceAccountJson.private_key,
         scopes,
     })
     return client
 }
 
-export const get_client_localhost = async (globalOauth2ClientSettings, scopes) => {
+export const getClientLocalhost = async (globalOauth2ClientSettings, scopes) => {
     const globalOAuth2Client = new OAuth2Client(globalOauth2ClientSettings)
+    // eslint-disable-next-line camelcase
     const oAuth2ClientAuthUrlOptions = { access_type: 'offline', scope: scopes }
 
     const nic = await authorizeWithLocalhost(globalOauth2ClientSettings, oAuth2ClientAuthUrlOptions)
@@ -26,8 +27,8 @@ export const get_client_localhost = async (globalOauth2ClientSettings, scopes) =
     return client
 }
 
-export const get_env = gapi_response => {
-    const values = gapi_response
+export const getEnv = gapiResponse => {
+    const values = gapiResponse
         .filter(el => el[0]?.length > 0)
         .reduce((acc, val) => {
             acc[val[0]] = val[1]
