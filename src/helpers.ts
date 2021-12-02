@@ -31,7 +31,7 @@ export const getEnv = gapiResponse => {
     const values = gapiResponse
         .filter(el => el[0]?.length > 0)
         .reduce((acc, val) => {
-            acc[val[0]] = String(val[1])
+            acc[val[0]] = val[1]
             return acc
         }, {})
 
