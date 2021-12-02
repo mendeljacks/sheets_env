@@ -20,7 +20,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run bump"
+            "pre-commit": "npm run pretty-quick"
         }
     },
     "files": [
