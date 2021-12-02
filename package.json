@@ -10,8 +10,7 @@
         "nt": "nodemon --exec nyc --reporter html npm run test",
         "ntt": "nodemon --exec npm run test",
         "coverage-watch": "live-server coverage",
-        "bump": "npm --no version patch",
-        "pretty-quick": "pretty-quick --staged"
+        "prepare": "husky install"
     },
     "dependencies": {
         "google-auth-library": "^7.10.2",
@@ -20,7 +19,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "pretty-quick --staged"
+            "pre-commit": "npm --no-git-tag-version version patch && pretty-quick --staged"
         }
     },
     "files": [
