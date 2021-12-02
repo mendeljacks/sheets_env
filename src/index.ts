@@ -8,7 +8,7 @@ export const fetchSheetsEnv = async (
 ) => {
     // no client secret necessary for ios clients (see google-auth-library)
     const globalOauth2ClientSettings = { clientId: clientId, redirectUri: 'http://localhost' }
-                               const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+                              const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}`
 
     const client = serviceAccountJson
