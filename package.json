@@ -63,7 +63,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm version --no-git-tag-version && pretty-quick --staged"
+            "pre-commit": "npm version --no-git-tag-version patch && pretty-quick --staged"
         }
     },
     "mocha": {
