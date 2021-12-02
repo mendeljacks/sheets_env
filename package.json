@@ -63,7 +63,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "pretty-quick --staged && npm version patch"
+            "pre-commit": "npm version patch && pretty-quick --staged"
         }
     },
     "mocha": {
