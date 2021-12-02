@@ -1,6 +1,6 @@
 {
     "name": "sheets_env",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Google sheets powered env management",
     "main": "build/index.js",
     "scripts": {
@@ -18,7 +18,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm --no-git-tag-version version patch && git add package.json && pretty-quick --staged"
+            "pre-commit": "node -e \"require('./.github/bump.js')\" && git add package.json && pretty-quick --staged"
         }
     },
     "files": [
