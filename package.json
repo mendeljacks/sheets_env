@@ -9,8 +9,7 @@
         "test": "mocha --package package.json",
         "nt": "nodemon --exec nyc --reporter html npm run test",
         "ntt": "nodemon --exec npm run test",
-        "coverage-watch": "live-server coverage",
-        "prepare": "husky install"
+        "coverage-watch": "live-server coverage"
     },
     "dependencies": {
         "google-auth-library": "^7.10.2",
