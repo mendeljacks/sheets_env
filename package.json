@@ -18,7 +18,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "node -e \"require('./.github/bump.js')\" && git add package.json && pretty-quick --staged"
+            "pre-commit": "node -e \"require('./.github/bump')\" && git add package.json && pretty-quick --staged"
         }
     },
     "files": [
