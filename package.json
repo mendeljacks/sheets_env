@@ -10,7 +10,7 @@
         "nt": "nodemon --exec nyc --reporter html npm run test",
         "ntt": "nodemon --exec npm run test",
         "coverage-watch": "live-server coverage",
-        "bump": "node -e \"require('./.github/bump')\"",
+        "bump": "npm --no version patch",
         "pretty-quick": "pretty-quick --staged"
     },
     "dependencies": {
