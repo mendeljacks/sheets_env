@@ -1,6 +1,6 @@
 {
     "name": "sheets_env",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Google sheets powered env management",
     "main": "build/index.js",
     "scripts": {
