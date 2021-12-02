@@ -15,6 +15,7 @@ You should get a Client ID like this ************-****************************.a
 - From the same credentials page also create a service account. Choose a name and click done. This will allow headless environments such as heroku/github actions to fetch the env without launching a browser and doing oauth. To get the serviceAccountJson click the newly created service account and choose keys tab click add new key JSON.
 
 - Create a spreadsheet and share with people (keep the spreadsheetid from the url)
+- Share the sheet with the service account's email address ****@oauth-123456.iam.gserviceaccount.com
 
 - Enable google sheets api so google can bill you if you use the api too much https://console.cloud.google.com/apis/library/sheets.googleapis.com
 
@@ -35,5 +36,14 @@ require('dotenv').config()
 
 
 export const jsonToEnv = (envObj) => Object.keys(envObj).map(key => `${key}=${envObj[key]}`).join('\n')
-
+export const tryParse = (json) => {
+  try {
+    return JSON.parse(json)
+  } catch (e) {
+    return null
+  }
+}
 ```
+
+- JSON.stringify the service account json and put it in heroku env
+- 
