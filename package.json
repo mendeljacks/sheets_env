@@ -19,7 +19,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm --no-git-tag-version version patch && pretty-quick --staged"
+            "pre-commit": "pretty-quick --staged"
         }
     },
     "files": [
