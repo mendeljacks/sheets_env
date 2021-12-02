@@ -1,6 +1,6 @@
 {
     "name": "sheets_env",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Google sheets powered env management",
     "main": "build/index.js",
     "scripts": {
@@ -9,7 +9,9 @@
         "test": "mocha --package package.json",
         "nt": "nodemon --exec nyc --reporter html npm run test",
         "ntt": "nodemon --exec npm run test",
-        "coverage-watch": "live-server coverage"
+        "coverage-watch": "live-server coverage",
+        "bump": "node -e \"require('./.github/bump')\"",
+        "pretty-quick": "pretty-quick --staged"
     },
     "dependencies": {
         "google-auth-library": "^7.10.2",
@@ -18,7 +20,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "node -e \"require('./.github/bump')\" && git add package.json && pretty-quick --staged"
+            "pre-commit": "npm run bump && npm run pretty-quick"
         }
     },
     "files": [
