@@ -46,4 +46,15 @@ export const tryParse = (json) => {
 ```
 
 - JSON.stringify the service account json and put it in heroku env
-- 
+- heroku escapes the string so you may want to put the key in heroku as a b64. take the json object with '' around it and b64 it.
+```js
+export const b64ToAscii = (b64) => {
+  // First b64 it with -> const b64 = Buffer.from(str).toString('base64')
+  try {
+    const ascii = JSON.parse(Buffer.from(b64, 'base64').toString('ascii'))
+    return ascii
+  } catch (error) {
+    return undefined
+  }
+}
+```
