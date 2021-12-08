@@ -1,0 +1,149 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js deploy
+
+PATH: 
+  C:\Perl64\site\bin;C:\Perl64\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2018.3.210\windows\mpi\intel64\bin;C:\Python39\Scripts\;C:\Python39\;C:\Users\mende\AppData\Roaming\ActiveState\bin;C:\TwinCAT\Common64;C:\TwinCAT\Common32;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\MATLAB\R2021a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MongoDB\Tools\100\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\mende\scoop\shims;C:\Users\mende\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\mende\AppData\Local\Programs\Python\Python39\;C:\Users\mende\.windows-build-tools\python27\;C:\Users\mende\.cargo\bin;C:\Users\mende\AppData\Local\Microsoft\WindowsApps;C:\Users\mende\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\tools\neovim\Neovim\bin;C:\Users\mende\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\mende\AppData\Local\gitkraken\bin;C:\Users\mende\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\mende\AppData\Roaming\npm;C:\Users\mende\AppData\Local\Microsoft\WindowsApps;C:\msys64\usr\bin;C:\msys64\mingw64\bin;C:\Program Files\MongoDB\Tools\100\bin;C:\Program Files (x86)\GitHub CLI\;C:\Users\mende\AppData\Roaming\nvm;C:\Program Files\nodejs
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.17.6
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Failed to replace env in config: ${INPUT_TOKEN}
+      at C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98430:13
+      at String.replace (<anonymous>)
+      at envReplace (C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98425:16)
+      at Function.normalizeConfig (C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:31887:69)
+      at NpmRegistry.<anonymous> (C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:31917:34)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\mende\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+      "name": "sheets_env",
+      "version": "1.0.12",
+      "description": "Google sheets powered env management",
+      "main": "build/index.js",
+      "scripts": {
+          "build": "tsc",
+          "deploy": "node -e \"require('./.github/deploy.js').deploy()\"",
+          "test": "mocha --package package.json",
+          "nt": "nodemon --exec nyc --reporter html npm run test",
+          "ntt": "nodemon --exec npm run test",
+          "coverage-watch": "live-server coverage"
+      },
+      "dependencies": {
+          "google-auth-library": "^7.10.2",
+          "open": "^8.4.0",
+          "sinon": "^12.0.1"
+      },
+      "files": [
+          "build/**/*"
+      ],
+      "repository": {
+          "type": "git",
+          "url": "git+https://github.com/mendeljacks/sheets_env.git"
+      },
+      "author": "Mendel Jacks",
+      "license": "MIT",
+      "keywords": [
+          "env",
+          "management",
+          "sheets",
+          "google",
+          "oauth"
+      ],
+      "bugs": {
+          "url": "https://github.com/mendeljacks/sheets_env/issues"
+      },
+      "homepage": "https://github.com/mendeljacks/sheets_env#readme",
+      "contributors": [
+          {
+              "name": "Mendel Jacks",
+              "email": "mendeljacks@gmail.com",
+              "url": "http://mendeljacks.com"
+          }
+      ],
+      "devDependencies": {
+          "@jsdevtools/npm-publish": "^1.4.3",
+          "@types/mocha": "^8.2.3",
+          "@types/node": "^16.11.11",
+          "@typescript-eslint/eslint-plugin": "^5.5.0",
+          "@typescript-eslint/parser": "^5.5.0",
+          "chai": "^4.3.4",
+          "eslint": "^8.3.0",
+          "live-server": "^1.2.1",
+          "mocha": "^9.0.1",
+          "nyc": "^15.1.0",
+          "sucrase": "^3.19.0",
+          "tsc": "^2.0.3",
+          "typescript": "^4.3.5"
+      },
+      "mocha": {
+          "require": [
+              "sucrase/register/ts"
+          ],
+          "spec": "src/**/*.test.ts",
+          "timeout": 0
+      },
+      "nodemonConfig": {
+          "verbose": true,
+          "legacyWatch": true,
+          "ignore": [
+              "node_modules",
+              "build"
+          ],
+          "watch": [
+              "./"
+          ],
+          "exec": "npm test",
+          "ext": "ts, js"
+      },
+      "eslintConfig": {
+          "env": {
+              "browser": true,
+              "es2021": true
+          },
+          "extends": [
+              "eslint:recommended",
+              "plugin:@typescript-eslint/recommended"
+          ],
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": {
+              "ecmaVersion": 12,
+              "sourceType": "module"
+          },
+          "plugins": [
+              "@typescript-eslint"
+          ],
+          "rules": {
+              "indent": [
+                  "error",
+                  4
+              ],
+              "@typescript-eslint/no-explicit-any": "off",
+              "no-async-promise-executor": "off",
+              "quotes": [
+                  "error",
+                  "single"
+              ],
+              "semi": [
+                  "error",
+                  "never"
+              ],
+              "camelcase": "warn"
+          }
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
