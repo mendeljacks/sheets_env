@@ -17,7 +17,7 @@ const getClientLocalhost = async (globalOauth2ClientSettings, scopes) => {
     const globalOAuth2Client = new google_auth_library_1.OAuth2Client(globalOauth2ClientSettings);
     // eslint-disable-next-line camelcase
     const oAuth2ClientAuthUrlOptions = { access_type: 'offline', scope: scopes };
-    const nic = await exports.authorizeWithLocalhost(globalOauth2ClientSettings, oAuth2ClientAuthUrlOptions);
+    const nic = await (0, exports.authorizeWithLocalhost)(globalOauth2ClientSettings, oAuth2ClientAuthUrlOptions);
     globalOAuth2Client.setCredentials(nic);
     const client = globalOAuth2Client;
     return client;
@@ -37,7 +37,7 @@ const authorizeWithLocalhost = async (oAuth2ClientOptions, oAuth2ClientAuthUrlOp
     // Wait until the server is listening, otherwise we don't have
     // the server port needed to set up the Oauth2Client.
     const server = await new Promise(resolve => {
-        const s = http_1.createServer();
+        const s = (0, http_1.createServer)();
         s.listen(0, () => resolve(s));
     });
     const { port } = server.address();

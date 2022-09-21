@@ -5,6 +5,7 @@ import { fetchSheetsEnv } from './index'
 import sinon from 'sinon'
 import * as helpers from './helpers'
 
+const secret = 'my_secret'
 describe('Sheets ENV', () => {
     test(fetchSheetsEnv.name, async () => {
         sinon.stub(helpers, 'getClientHeadless').callsFake(fake)
@@ -15,8 +16,8 @@ describe('Sheets ENV', () => {
         // eslint-disable-next-line camelcase
         const serviceAccount = { client_email: 'john@so.org', private_key: '123' }
         const clientId = '4892776289376-7oxYKhmjJqumzLlb66o58g3t.apps.googleusercontent.com'
-        const result = await fetchSheetsEnv(range, spreadhsheetId, serviceAccount, clientId)
-        const result2 = await fetchSheetsEnv(range, spreadhsheetId, undefined, clientId)
+        const result = await fetchSheetsEnv(range, spreadhsheetId, serviceAccount, clientId, secret)
+        const result2 = await fetchSheetsEnv(range, spreadhsheetId, undefined, clientId, secret)
 
         expect(result).to.deep.equal({ key1: 'val1', key2: 'val2' })
         expect(result2).to.deep.equal({ key1: 'val1', key2: 'val2' })
